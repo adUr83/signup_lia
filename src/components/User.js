@@ -52,7 +52,7 @@ import Consumer from '../context'
 
         const {reason} = this.props
 
-    return <div><p style ={{color : "#093EE9" , fontWeight : "normal"}} class="font-italic">{reason}</p></div>
+    return <div><p style ={{color : "#093EE9" , fontWeight : "normal"}} className="font-italic">{reason}</p></div>
     }
 
     showTheReason = () =>{
@@ -81,13 +81,13 @@ import Consumer from '../context'
                              <div  className = "d-flex justify-content-between">
                                 <div >
                                 {
-                                    this.formatter()
+                                    this.formatter() // isi soy isim yazdırmak için
                                     
                                 }
                                 </div>
                                 <div >   
                                 {
-                                    this.getDecision()
+                                    this.getDecision() // adamın verdiği kararı almak için
                                 } 
                                 </div>
                                 

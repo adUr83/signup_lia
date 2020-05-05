@@ -1,12 +1,12 @@
 import React ,{Component}from 'react';
 import './App.css';
 
-import Event from './components/Event'
-import Invitations from './components/Invitations'
-import Attendance from './components/Attendance'
 
-//import {Event,Invitations,Attendance} from './components'
+import {Event,Invitations,Attendance,EventCreator} from './components'
+
+
 import Consumer from './context'
+
 
  class App extends Component {
     
@@ -21,19 +21,28 @@ import Consumer from './context'
             
             const {showInvitations,curUser,users} = value;  // page handler  and data
 
-            const {eTitle,eDes,eDateAndTime,eLoc} = value.eventInfo;  //event informations
+            const {eventInfo,showEventCreator} = value;  //event informations
              
             return (
               
              <div className = "container">
               
-              <Event  title = {eTitle} des = {eDes} dt = {eDateAndTime} loc = {eLoc} />
-                {  
-                     showInvitations
-                     ? <Invitations users = {users}/>
-                     : <Attendance curUser = {curUser}/>
+               {
+                 showEventCreator 
+                  ?<EventCreator/>  
+                  : <div>
+                     <Event  eventInfo = {eventInfo} /> 
+                      {  
+                       showInvitations
+                       ? <Invitations users = {users}/>
+                       : <Attendance curUser = {curUser}/>
+  
+                      }
+                    </div>   
+               }
+               
+                
 
-                }
              </div>              
             )
           } 
